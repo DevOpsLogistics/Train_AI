@@ -42,8 +42,18 @@ python -c "import torch; print('CUDA:', torch.cuda.is_available())"
 
 ```powershell
 pip uninstall torch torchvision torchaudio -y
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 ```
+
+**RTX 5060 / 5070 / 50xx (Blackwell, sm_120):** bắt buộc dùng **cu128**, không dùng cu124/cu121. Nếu thấy warning `sm_120 is not compatible` hoặc crash `Exit code: -1073741819`:
+
+```powershell
+pip uninstall torch torchvision torchaudio -y
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+python -c "import torch; print(torch.__version__, torch.version.cuda); x=torch.zeros(1,device='cuda'); print('OK')"
+```
+
+Tham khảo: [PyTorch RTX 5060 sm_120](https://discuss.pytorch.org/t/pytorch-support-for-sm-120-nvidia-geforce-rtx-5060/220941)
 
 ### Linux
 
