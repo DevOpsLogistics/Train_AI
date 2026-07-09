@@ -1,0 +1,43 @@
+{
+  "splits": {
+    "train": 88,
+    "dev": 11,
+    "test": 11
+  },
+  "labels": [
+    "O",
+    "B-CONDITION",
+    "B-SYMPTOM",
+    "B-LAB_TEST",
+    "B-MEDICATION",
+    "B-PROCEDURE",
+    "B-DOSAGE",
+    "B-OTHER",
+    "I-CONDITION",
+    "I-SYMPTOM",
+    "I-LAB_TEST",
+    "I-MEDICATION",
+    "I-PROCEDURE",
+    "I-DOSAGE",
+    "I-OTHER"
+  ],
+  "entity_types": [
+    "CONDITION",
+    "SYMPTOM",
+    "LAB_TEST",
+    "MEDICATION",
+    "PROCEDURE",
+    "DOSAGE",
+    "OTHER"
+  ],
+  "relation_types": [
+    "TREATS",
+    "DOSAGE_OF",
+    "ASSOCIATED_WITH",
+    "INDICATES"
+  ],
+  "cases": 110,
+  "entities": 1180,
+  "relations": 844,
+  "missed_entities": 0
+}

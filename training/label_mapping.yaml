@@ -1,0 +1,15 @@
+# ViMedNER label -> pipeline EntityType (cho JSONL export)
+vimedner_to_pipeline:
+  ten_benh: CONDITION
+  trieu_chung_benh: SYMPTOM
+  nguyen_nhan_benh: CONDITION
+  bien_phap_chan_doan: PROCEDURE
+  bien_phap_dieu_tri: MEDICATION
+
+# Mô tả nhãn gốc ViMedNER
+vimedner_labels:
+  ten_benh: Tên bệnh
+  trieu_chung_benh: Triệu chứng
+  nguyen_nhan_benh: Nguyên nhân
+  bien_phap_chan_doan: Biện pháp chẩn đoán
+  bien_phap_dieu_tri: Biện pháp điều trị

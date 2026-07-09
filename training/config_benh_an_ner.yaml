@@ -1,0 +1,26 @@
+# Fine-tune PhoBERT NER trên 110 bệnh án gán nhãn đầy đủ
+
+dataset:
+  raw_dir: ./data/training/benh_an_ner
+  labels_file: ./data/training/benh_an_ner/labels.txt
+
+model:
+  base: vinai/phobert-base
+  max_length: 256
+
+training:
+  output_dir: ./models/benh_an_ner
+  num_epochs: 15
+  batch_size: 8
+  eval_batch_size: 16
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  seed: 42
+  save_total_limit: 2
+  load_best_model_at_end: true
+  metric_for_best_model: f1
+
+inference:
+  model_path: ./models/benh_an_ner/final
+  confidence_threshold: 0.5
