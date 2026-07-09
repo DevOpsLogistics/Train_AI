@@ -5,9 +5,8 @@ Repo train **NER + Relation** (PhoBERT) trên 110 bệnh án gán nhãn.
 ## Quick start (máy GPU)
 
 ```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements-train.txt
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+.\setup_gpu.ps1
 .\train_all.ps1
 ```
 

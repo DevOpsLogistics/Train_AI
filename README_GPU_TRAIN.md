@@ -10,20 +10,46 @@ Gói này gồm data + script train NER và Relation (PhoBERT).
 
 ## Cài đặt (1 lần)
 
-### Windows (PowerShell)
+### Windows (PowerShell) — khuyến nghị
+
 ```powershell
-python -m venv .venv
+# Cho phep chay script (1 lan)
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+
+git clone https://github.com/DevOpsLogistics/Train_AI.git
+cd Train_AI
+
+# Script tu dong: venv + pip + PyTorch CUDA + dependencies
+.\setup_gpu.ps1
+```
+
+**Nếu `python -m venv` lỗi ensurepip**, chạy thủ công:
+
+```powershell
+python -m venv .venv --without-pip
 .venv\Scripts\Activate.ps1
+Invoke-WebRequest https://bootstrap.pypa.io/get-pip.py -OutFile get-pip.py
+python get-pip.py
+
+# QUAN TRONG: cai torch ban CUDA (khong dung pip install torch thuong)
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 pip install -r requirements-train.txt
-python -c "import torch; print('CUDA:', torch.cuda.is_available(), torch.cuda.get_device_name(0) if torch.cuda.is_available() else '')"
+
+python -c "import torch; print('CUDA:', torch.cuda.is_available())"
+```
+
+**Lỗi `Torch not compiled with CUDA enabled`:** bạn đã cài nhầm bản CPU. Gỡ và cài lại:
+
+```powershell
+pip uninstall torch torchvision torchaudio -y
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 ```
 
 ### Linux
+
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements-train.txt
-python -c "import torch; print('CUDA:', torch.cuda.is_available())"
+chmod +x setup_gpu.sh train_all.sh
+./setup_gpu.sh
 ```
 
 ## Train

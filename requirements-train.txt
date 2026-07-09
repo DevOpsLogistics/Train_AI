@@ -1,8 +1,8 @@
-# Training NER — cài riêng (cần GPU khuyến nghị)
-torch>=2.0
+# KHÔNG cài torch từ file này — dùng setup_gpu.ps1 hoặc lệnh CUDA bên dưới
 transformers>=4.40
 datasets>=2.19
 seqeval>=0.0.12
 accelerate>=0.30
 sentencepiece>=0.2
 scikit-learn>=1.4
+pyyaml>=6.0
